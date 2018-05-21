@@ -1,0 +1,13 @@
+.example-card {
+    max-width: 400px;
+  }
+  
+  .example-header-image {
+    background-image: url('http://www.4enoch.org/wiki4/images/a/ac/Cinema.jpg');
+    background-size: cover;
+  }
+
+  .myImage {
+    max-width: 450px; 
+    max-height: 350px;
+  }

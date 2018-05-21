@@ -1,0 +1,22 @@
+<div style="min-width: 100%;">
+<mat-drawer-container autosize class="example-container">
+  <mat-drawer class="example-sidenav" mode="side" opened = "{{czyRozwiniety()}}">
+      <mat-nav-list>
+          <h3 mat-subheader>Filmy</h3>
+          <a mat-list-item 
+                *ngFor="let film of wyszukaneFilmy" 
+                (click) = "wybierz(film)"
+                [style.background-color] = "film === wybranyFilm ? 'lightgray': ''">
+              <mat-icon mat-list-icon>folder</mat-icon>
+              <h4 mat-line>{{film.name}}</h4>
+              <p mat-line> {{film.type}} </p>
+          </a>
+      </mat-nav-list>
+  </mat-drawer>
+
+  <div class="example-sidenav-content">
+      <app-szczegoly [film]="wybranyFilm"></app-szczegoly>
+  </div>
+  
+</mat-drawer-container>  
+</div>

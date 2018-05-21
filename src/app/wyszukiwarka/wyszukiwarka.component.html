@@ -1,0 +1,13 @@
+<form style="text-align: center">
+    <mat-form-field>
+      <input matInput placeholder="Nazwa" name="szukajFilmu" [(ngModel)] = "szukanyFilm">
+    </mat-form-field>
+    <button mat-fab (click)="szukaj()" color="primary">
+      <mat-icon>search</mat-icon>
+    </button>
+</form>
+
+<mat-divider></mat-divider>
+
+<app-filmy [wyszukaneFilmy]="filmy"
+            (selected)="wybranoFilm($event)"></app-filmy>
