@@ -1,0 +1,37 @@
+<app-menu></app-menu>
+
+
+<mat-divider></mat-divider>
+    <h1>{{film.name}}</h1>
+
+<div class="example-container mat-elevation-z8">
+    <mat-table #table [dataSource]="odcinki">
+            
+        <ng-container matColumnDef="sezon">
+            <mat-header-cell *matHeaderCellDef> Sezon </mat-header-cell>
+            <mat-cell *matCellDef="let element"> {{element.season}}/{{element.number}} </mat-cell>
+        </ng-container>
+      
+        <ng-container matColumnDef="nazwa">
+            <mat-header-cell *matHeaderCellDef> Nazwa </mat-header-cell>
+            <mat-cell *matCellDef="let element"> {{element.name}} </mat-cell>
+        </ng-container>
+      
+        <ng-container matColumnDef="data">
+            <mat-header-cell *matHeaderCellDef> Data </mat-header-cell>
+            <mat-cell *matCellDef="let element"> {{element.airstamp | dataEmisji:'YYYY-MM-DD'}} </mat-cell>
+        </ng-container>
+
+        <ng-container matColumnDef="podsumowanie">
+            <mat-header-cell *matHeaderCellDef></mat-header-cell>
+            <mat-cell *matCellDef="let element"> 
+                <button mat-icon-button color="primary" (click)="summary(element)">
+                    <mat-icon aria-label="Opis odcinka">info</mat-icon>
+                </button>
+            </mat-cell>
+        </ng-container>        
+            
+          <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+          <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+    </mat-table>
+</div>

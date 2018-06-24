@@ -1,0 +1,43 @@
+<mat-toolbar color="primary">
+  <mat-toolbar-row>
+
+      <mat-menu #appMainMenu="matMenu" yPosition="above">
+          <button mat-menu-item routerLink="/wyszukiwarka">
+            <mat-icon>search</mat-icon>
+            <span>Wyszukiwarka</span>
+          </button>
+          <button mat-menu-item routerLink="/ulubione">
+            <mat-icon>favorite</mat-icon>
+            <span>Ulubione</span>
+          </button>
+
+          <button mat-menu-item routerLink="/kalendarz">
+            <mat-icon>calendar_today</mat-icon>
+            <span>Kalendarz</span>
+          </button>
+
+
+          <button mat-menu-item routerLink="/info">
+            <mat-icon>info</mat-icon>
+            <span>O aplikacji</span>
+          </button>
+        </mat-menu>
+    
+        <button mat-icon-button [matMenuTriggerFor]="appMainMenu">
+          <mat-icon>more_vert</mat-icon>
+        </button>
+
+        <div class="center" style="text-align: center">
+            <span>Wyszukiwarka filmów</span>      
+        </div>
+
+    <span class="example-spacer"></span>
+    
+    <mat-icon *ngIf="liczbaulubionych===0" class="example-icon">favorite_border</mat-icon>        
+    <div *ngIf="liczbaulubionych > 0">
+        <mat-icon class="example-icon">favorite</mat-icon>
+        {{liczbaulubionych}}        
+    </div>
+
+  </mat-toolbar-row>
+</mat-toolbar>    

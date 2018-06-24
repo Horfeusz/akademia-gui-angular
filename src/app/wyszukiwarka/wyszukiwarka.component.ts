@@ -32,9 +32,11 @@ export class WyszukiwarkaComponent implements OnInit {
   }
 
   wybranoFilm(film: Show) {
+    /*
     this.snackBar.open(film.name, film.type, {
       duration: 2000,
     });
+    */
   }
 
 }

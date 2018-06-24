@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { ShowResponse, Show } from './tv.models';
+import { ShowResponse, Show, Episode } from './tv.models';
+import { Observable } from 'rxjs/Observable';
 
 @Injectable()
 export class TvmazeService {
@@ -19,6 +20,11 @@ export class TvmazeService {
     });
 
     return result;
+  }
+
+  odcinki(id: any): Observable<Episode[]> {
+    const url = `${this.baseUrl}/shows/${id}/episodes`;
+    return this.http.get<Episode[]>(url);
   }
 
 }

@@ -6,16 +6,35 @@ import {
   MatToolbarModule,
   MatIconModule,
   MatButtonModule,
-  MatDividerModule, MatSidenavModule, MatListModule, MatCardModule, MatSnackBarModule
+  MatDividerModule,
+  MatSidenavModule,
+  MatListModule,
+  MatCardModule,
+  MatSnackBarModule,
+  MatMenuModule,
+  MatProgressSpinnerModule,
+  MatTableModule,
+  MatDialogModule
 } from '@angular/material';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-
+import { FullCalendarModule } from 'ng-fullcalendar';
 
 import { AppComponent } from './app.component';
 import { WyszukiwarkaComponent } from './wyszukiwarka/wyszukiwarka.component';
 import { HttpClientModule } from '@angular/common/http';
 import { FilmyComponent } from './filmy/filmy.component';
 import { SzczegolyComponent } from './szczegoly/szczegoly.component';
+import { MenuComponent } from './menu/menu.component';
+import { StartComponent } from './start/start.component';
+import { UlubioneComponent } from './ulubione/ulubione.component';
+import { InfoComponent } from './info/info.component';
+import { RouterModule } from '@angular/router';
+import appRouting from './routing/my-routing';
+import { OdcinkiComponent } from './odcinki/odcinki.component';
+import { MyDataPipe } from './my-data.pipe';
+import { PodsumowanieComponent } from './odcinki/podsumowanie/podsumowanie.component';
+import { UlubioneService } from './ulubione.service';
+import { KalendarzComponent } from './kalendarz/kalendarz.component';
 
 
 @NgModule({
@@ -23,9 +42,18 @@ import { SzczegolyComponent } from './szczegoly/szczegoly.component';
     AppComponent,
     WyszukiwarkaComponent,
     FilmyComponent,
-    SzczegolyComponent
+    SzczegolyComponent,
+    MenuComponent,
+    StartComponent,
+    UlubioneComponent,
+    InfoComponent,
+    OdcinkiComponent,
+    MyDataPipe,
+    PodsumowanieComponent,
+    KalendarzComponent
   ],
   imports: [
+    RouterModule.forRoot(appRouting),
     BrowserModule,
     HttpClientModule,
     FormsModule,
@@ -38,9 +66,15 @@ import { SzczegolyComponent } from './szczegoly/szczegoly.component';
     MatListModule,
     MatSidenavModule,
     MatCardModule,
-    MatSnackBarModule
+    MatSnackBarModule,
+    MatMenuModule,
+    MatProgressSpinnerModule,
+    MatTableModule,
+    MatDialogModule,
+    FullCalendarModule
   ],
-  providers: [],
-  bootstrap: [AppComponent]
+  providers: [UlubioneService],
+  bootstrap: [AppComponent],
+  entryComponents: [PodsumowanieComponent]
 })
 export class AppModule { }
